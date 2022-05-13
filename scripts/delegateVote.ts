@@ -39,11 +39,12 @@ async function main() {
     signer
   ) as Ballot;
 
-  //checking chairperson
+  //if signer is chairperson throw error
   const chairpersonAddress = await ballotContract.chairperson();
-  if (chairpersonAddress !== signer.address)
+  if (chairpersonAddress === signer.address)
     throw new Error("Self-delegation is disallowed");
 
+  //if signer is delegating vote to themseleves throw error
   if (signer.address === toAddress) {
     throw new Error("You already voted");
   }
