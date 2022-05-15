@@ -29,6 +29,7 @@ async function main() {
     etherscan: process.env.ETHERSCAN_API_KEY,
   });
   console.log(`using wallet ${wallet.address}`);
+
   const signer = wallet.connect(provider);
 
   //getting the wallet balance
