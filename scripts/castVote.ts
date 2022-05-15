@@ -41,6 +41,13 @@ async function main() {
 
   console.log(`voting for ${proposalIndex}`);
 
+  //checking if voter has already voted
+  const voter = await ballotContract.voters(signer.address);
+
+  if (voter.voted === true) {
+    throw new Error("You can only vote once");
+  }
+
   //voting on proposal
   const tx = await ballotContract.vote(proposalIndex);
 }
