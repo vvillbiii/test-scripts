@@ -41,7 +41,9 @@ async function main() {
 
   for (let i = 0; i < Number(proposalLength); i++) {
     console.log(
-      `proposal ${(await ballotContract.proposals(i)).name} is at index ${i}.`
+      `proposal ${await ballotContract.proposals(i)} has ${
+        (await ballotContract.proposals(i)).voteCount
+      } votes.`
     );
   }
 }
