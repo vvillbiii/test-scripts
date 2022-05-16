@@ -37,15 +37,8 @@ async function main() {
     signer
   ) as Ballot;
 
-  const proposalLength = await ballotContract.getProposalsArrayLength();
-
-  for (let i = 0; i < Number(proposalLength); i++) {
-    console.log(
-      `proposal ${await ballotContract.proposals(i)} has ${
-        (await ballotContract.proposals(i)).voteCount
-      } votes.`
-    );
-  }
+  const tx = await ballotContract.winnerName();
+  console.log(`Winning proposal: ${ethers.utils.parseBytes32String(tx)}`);
 }
 
 main().catch((error) => {
