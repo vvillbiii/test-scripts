@@ -3,6 +3,24 @@ pragma solidity >=0.7.0 <0.9.0;
 
 /// @title Voting with delegation.
 contract Ballot {
+    //events
+    event NewVoter(address indexed voter);
+
+    event Delegated(
+        address indexed voter,
+        address indexed finalDelegate,
+        uint256 finalWeight,
+        bool voted,
+        uint256 proposal,
+        uint256 proposalVotes
+    );
+
+    event Voted(
+        address indexed voter,
+        uint256 indexed proposal,
+        uint256 weight,
+        uint256 proposalVotes
+    );
     // This declares a new complex type which will
     // be used for variables later.
     // It will represent a single voter.
