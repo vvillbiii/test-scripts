@@ -2,6 +2,7 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 /// @title Voting with delegation.
+/// @author Team G
 contract Ballot {
     // This declares a new complex type which will
     // be used for variables later.
